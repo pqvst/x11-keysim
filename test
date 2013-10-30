@@ -1,0 +1,1 @@
+g++ keysim.cpp -o keysim -lX11 -lXtst && ./keysim 0x00d6
