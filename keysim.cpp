@@ -13,14 +13,13 @@ LookupMap createLookup();
 void press(int ch)
 {
 	// Lookup keysym for unicode character
-	LookupMap lookup = createLookup();
-	LookupMap::iterator it = lookup.find(ch);
 	int keysym = 0;
-	if (it == lookup.end()) {
+	if (ch < XLookupLen)
+		keysym = XLookup[ch];
+	if (keysym == 0) {
 		std::cout << "could not find: " << ch << " in lookup table >.<" << std::endl;
 		return;
 	} else {
-		keysym = it->second;
 		std::cout << "character: " << ch << " -> keysym: " << keysym << std::endl;
 	}
 
